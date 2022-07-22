@@ -6,7 +6,11 @@ import styles from "../styles/Home.module.css";
 import Main from "../components/main/Main";
 
 const Home: NextPage = () => {
-  return <Main />;
+  return (
+    <>
+      <Main />
+    </>
+  );
 };
 
 export default Home;

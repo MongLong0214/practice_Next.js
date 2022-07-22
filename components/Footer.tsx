@@ -27,8 +27,9 @@ const FootContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: white;
 
-  /* background-color: red; */
+  background-color: red;
 `;
 
 const FooterLine = styled.div`

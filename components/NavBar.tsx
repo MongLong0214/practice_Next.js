@@ -31,10 +31,13 @@ const NavBar = () => {
 export default NavBar;
 
 const Nav = styled.section`
-  position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  margin: 0;
+  padding: 0;
+  /* position: fixed; */
+  /* background-color: white; */
+  width: 100%;
 `;
 
 const NavBox = styled.div`
@@ -90,7 +93,7 @@ const NavRightLogoBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: gray;
+  /* background-color: gray; */
   margin-right: 0.5rem;
 `;
 

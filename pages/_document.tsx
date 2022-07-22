@@ -38,8 +38,8 @@ class MyDocument extends Document {
       <Html lang="ko">
         <Head>
           <meta charSet="utf-8" />
-          <link rel="shortcut icon" href="/favicon.svg" type="image/svg" />
-          <meta property="og:title" content="" />
+          <link rel="shortcut icon" href="" type="image/svg" />
+          <meta property="og:title" content="why" />
           <meta property="og:image" content="" />
           <meta property="og:description" content="" />
           <meta property="og:url" content="//" />
