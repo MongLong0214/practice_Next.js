@@ -2,121 +2,93 @@ import React from "react";
 import Image from "next/image";
 import styled from "styled-components";
 import Logo from "../public/logo.png";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const NavBar = () => {
+  const router = useRouter();
   return (
-    <Nav>
-      <NavBox>
-        <NavLeft>
-          <NavLeftTextBox>STORE</NavLeftTextBox>
-        </NavLeft>
-        <NavRight>
+    <>
+      <Nav>
+        <NavRightBox>
           <NavRightTextBox>
-            <NavRightTextStore>STORE</NavRightTextStore>
-            <NavRightTextAbout>ABOUT</NavRightTextAbout>
+            <Link href="/">
+              <NavRightTextStore>STORE</NavRightTextStore>
+            </Link>
+            <Link href="/about">
+              <NavRightTextAbout>ABOUT</NavRightTextAbout>
+            </Link>
           </NavRightTextBox>
           <NavRightLogoBox>
-            <Image src={Logo} width={100} height={100} alt="Logo" />
+            <Image src={Logo} alt="logo" />
           </NavRightLogoBox>
-        </NavRight>
-      </NavBox>
-      <NavUnderLineBox>
-        <NavUnderLine />
-        <NavUnderLine2 />
-      </NavUnderLineBox>
-    </Nav>
+        </NavRightBox>
+      </Nav>
+    </>
   );
 };
 
 export default NavBar;
 
+{
+  /* <Image src={Logo} width={100} height={100} alt="Logo" /> */
+}
 const Nav = styled.section`
   top: 0;
   left: 0;
   margin: 0;
   padding: 0;
-  /* position: fixed; */
-  /* background-color: white; */
-  width: 100%;
+  position: fixed;
+  background-color: white;
+  width: 100vw;
+  height: 130px;
+  z-index: 9999;
 `;
 
-const NavBox = styled.div`
-  height: 15vh;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const NavLeft = styled.div`
-  /* width: 50vw; */
-  display: flex;
-  /* background-color: blue; */
-`;
-const NavLeftTextBox = styled.div`
-  margin-left: 20%;
-  display: flex;
-  align-items: flex-end;
-  color: #9c27b0;
-  font-size: 3rem;
-  font-weight: bold;
-
-  /* background-color: navy; */
-`;
-const NavRight = styled.div`
-  margin: 1.3rem;
-  /* width: 45vw; */
-  display: flex;
-  /* background-color: green; */
-`;
-
-const NavRightTextBox = styled.div`
-  /* margin-left: 21%; */
-  width: 70vw;
+const NavRightBox = styled.div`
   display: flex;
   justify-content: flex-end;
-  align-items: center;
-  font-weight: bold;
+  margin-right: 2%;
+  font-size: 1.5rem;
   /* background-color: yellow; */
 `;
+
+const NavRightTextBox = styled.ul`
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 2%;
+`;
 const NavRightTextStore = styled.div`
-  color: #242121;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10%;
+  margin-top: 3rem;
   font-size: 2rem;
-  margin-right: 2rem;
-  /* background-color: gray; */
+  /* font-weight: bold; */
+  cursor: pointer;
+  &:hover {
+    color: black;
+    opacity: 0.6;
+  }
+  /* background-color: yellow; */
 `;
 const NavRightTextAbout = styled.div`
-  color: #242121;
+  display: flex;
+  justify-content: flex-end;
+  /* margin-right: 2%; */
+  margin-top: 3rem;
   font-size: 2rem;
-  margin-right: 2rem;
-  /* background-color: blue; */
+  /* font-weight: bold; */
+  cursor: pointer;
+  &:hover {
+    color: black;
+    opacity: 0.6;
+  }
+  /* background-color: yellow; */
 `;
+
 const NavRightLogoBox = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* background-color: gray; */
-  margin-right: 0.5rem;
-`;
-
-const NavUnderLineBox = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-`;
-
-const NavUnderLine = styled.div`
-  width: 47%;
-  height: 0.3rem;
-  /* margin-left: 0.5rem; */
-
-  background: #9c27b0;
-  border-radius: 2rem;
-`;
-
-const NavUnderLine2 = styled.div`
-  width: 47%;
-  height: 0.3rem;
-  /* margin-right: 0.5rem; */
-
-  background: #9c27b0;
-  border-radius: 2rem;
+  width: 7rem;
+  height: 7rem;
+  margin-top: 0.5rem;
 `;

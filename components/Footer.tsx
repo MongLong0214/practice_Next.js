@@ -29,7 +29,7 @@ const FootContainer = styled.div`
   flex-direction: column;
   background-color: white;
 
-  background-color: red;
+  /* background-color: green; */
 `;
 
 const FooterLine = styled.div`
