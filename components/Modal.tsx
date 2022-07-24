@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import styled, { keyframes } from "styled-components";
 import clear from "../public/clear.png";
-const Modal = ({ setOpenModal, props }: any) => {
+const Modal = ({ setOpenModal, id }: any) => {
   const FoodData = useRecoilValue(foodDataState);
   // 모달 팝업 시 스크롤 이동 방지
   useEffect(() => {
@@ -28,7 +28,7 @@ const Modal = ({ setOpenModal, props }: any) => {
   });
 
   return (
-    <ModalBackground {...props}>
+    <ModalBackground>
       <ModalContainer>
         <div className="titleCloseBtn">
           <ModalCloseBtn
@@ -41,16 +41,16 @@ const Modal = ({ setOpenModal, props }: any) => {
         </div>
         <ModalContent>
           <ModalContainerLeft>
-            <ModalContainerLeftImg src={FoodData[2].image} alt="Logo" />
+            <ModalContainerLeftImg src={FoodData[id].image} alt="Logo" />
           </ModalContainerLeft>
           <ModalContainerRight>
             <ModalContainerRightBox>
               <ModalContainerRightName>
-                {FoodData[2].name}
+                {FoodData[id].name}
               </ModalContainerRightName>
-              <ModalContainerDes>{FoodData[2].description}</ModalContainerDes>
+              <ModalContainerDes>{FoodData[id].description}</ModalContainerDes>
 
-              <ModalContainerUrl>{FoodData[2]?.url}</ModalContainerUrl>
+              <ModalContainerUrl>{FoodData[id]?.url}</ModalContainerUrl>
             </ModalContainerRightBox>
           </ModalContainerRight>
         </ModalContent>
@@ -144,8 +144,8 @@ const ModalContainerRight = styled.div`
 const ModalContainerRightBox = styled.div`
   padding: 4rem;
 
-  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
-    rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   /* background-color: yellow; */
   border-radius: 1rem;
   margin-right: 10%;

@@ -12,8 +12,7 @@ const Main = () => {
   const [foodData, setFoodData] = useRecoilState(foodDataState);
   const [modalOpen, setModalOpen] = useState(false);
   const [eachFood, setEachFood] = useState({
-    name: "",
-    description: "",
+    id: "",
   });
 
   useEffect(() => {
@@ -31,11 +30,11 @@ const Main = () => {
     window.scrollTo({ top: 0 });
     setModalOpen(true);
 
-    const { id, alt } = e.target;
     setEachFood({
-      name: id,
-      description: alt,
+      id: e.target.id - 1,
     });
+
+    console.log("e", e.target.id);
   };
 
   return (
@@ -56,9 +55,9 @@ const Main = () => {
               {foodData.map((item, index) => (
                 <Grid item xs={12} md={6} lg={3} key={index}>
                   <BodyContents
+                    key={item.name}
                     src={item.thumb}
                     alt={item.name}
-                    key={index}
                     id={item.id}
                     onClick={handlerModal}
                   />
@@ -67,13 +66,7 @@ const Main = () => {
             </Grid>
           </Container>
         </BodyContentBox>
-        {modalOpen && (
-          <Modal
-            setOpenModal={setModalOpen}
-            name={eachFood.name}
-            description={eachFood.description}
-          />
-        )}
+        {modalOpen && <Modal setOpenModal={setModalOpen} id={eachFood.id} />}
       </BodyContentWrapper>
     </>
   );
