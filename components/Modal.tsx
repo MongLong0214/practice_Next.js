@@ -49,7 +49,6 @@ const Modal = ({ setOpenModal, id }: any) => {
                 {FoodData[id].name}
               </ModalContainerRightName>
               <ModalContainerDes>{FoodData[id].description}</ModalContainerDes>
-
               <ModalContainerUrl>{FoodData[id]?.url}</ModalContainerUrl>
             </ModalContainerRightBox>
           </ModalContainerRight>
@@ -84,7 +83,7 @@ export const fadeInAnimation = keyframes`
 const ModalContainer = styled.div`
   width: 80%;
   height: 80%;
-  margin-bottom: 26vh;
+  margin-top: -7%;
 
   border-radius: 12px;
   background-color: white;

@@ -1,12 +1,24 @@
 import React, { useEffect, useState } from "react";
+import * as API from "../api";
 import Logo from "../public/logo.png";
 import Image from "next/image";
 import styled from "styled-components";
-import { useRecoilValue } from "recoil";
-import { foodDataState } from "../atom";
+import Carousel from "../components/Carousel";
 
 const About = () => {
-  const FoodData = useRecoilValue(foodDataState);
+  const [foodData, setFoodData] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      const res = await API.get("stores");
+      setFoodData(res.data);
+    };
+    getData();
+  }, []);
+
+  useEffect(() => {
+    console.log("foodData", foodData);
+  }, []);
 
   return (
     <>
@@ -17,7 +29,7 @@ const About = () => {
           <BodyTopUnderLine2></BodyTopUnderLine2>
         </BodyTopUnderLineBox>
       </BodyTopWrapper>
-      <BodyContentText>About</BodyContentText>
+
       <BodyContentWrapper>
         <BodyContentBoxLeft>
           <BodyContentBoxLeftImg>
@@ -37,7 +49,10 @@ const About = () => {
           </BodyContentBoxLeftCopyBox>
         </BodyContentBoxLeft>
         <BodyContentBoxRight>
-          <BodyContentBoxRightImg></BodyContentBoxRightImg>
+          {/* {foodData.map((item, index) => (
+            <img src={item.image} alt="img" key="slides" />
+          ))} */}
+          <Carousel />
         </BodyContentBoxRight>
       </BodyContentWrapper>
     </>
@@ -47,21 +62,21 @@ const About = () => {
 export default About;
 
 const BodyTopWrapper = styled.section`
-  background-color: blue;
+  /* background-color: blue; */
   margin-top: 130px;
 `;
 
 const BodyTopText = styled.div`
   font-size: 3rem;
   margin-left: 2%;
-  background-color: red;
+  /* background-color: red; */
 `;
 
 const BodyTopUnderLineBox = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-around;
-  background-color: black;
+  /* background-color: black; */
 `;
 
 const BodyTopUnderLine = styled.div`
@@ -80,64 +95,59 @@ const BodyTopUnderLine2 = styled.div`
   background: #9c27b0;
   border-radius: 2rem;
 `;
-const BodyContentText = styled.div`
-  font-size: 3rem;
-  margin-left: 10%;
-  margin-top: 130px;
-  background-color: white;
-`;
 
 const BodyContentWrapper = styled.section`
-  background-color: yellow;
+  /* width: 100%; */
+  /* background-color: yellow; */
   display: flex;
   justify-content: center;
+  margin-top: 4%;
   /* flex-direction: row; */
   /* justify-content: space-around; */
 `;
 
 const BodyContentBoxLeft = styled.div`
-  width: 40%;
+  width: 35rem;
   /* height: 350px; */
-  background-color: pink;
+  /* background-color: pink; */
   margin-bottom: 130px;
 `;
 
 const BodyContentBoxLeftImg = styled.div`
   /* margin: 4%; */
-  background-color: yellow;
+  margin-top: 5%;
+  margin-left: 1.4rem;
+  /* background-color: yellow; */
 `;
 
 const BodyContentBoxLeftCopyBox = styled.div`
-  background-color: pink;
+  /* background-color: pink; */
+  margin-left: 1.4rem;
 `;
 
 const BodyContentBoxLeftMainCopy = styled.div`
   font-size: 3.3rem;
   font-weight: bold;
-  background-color: white;
+  /* background-color: white; */
 `;
 const BodyContentBoxLeftSubCopy = styled.div`
   margin-top: 1rem;
   font-size: 1.3rem;
   font-weight: bold;
-  background-color: red;
+  /* background-color: red; */
 `;
 
 const BodyContentBoxRight = styled.div`
-  width: 40%;
+  width: 30rem;
+  /* height: 350px; */
+  /* background-color: pink; */
+  margin-bottom: 130px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
   /* height: 350px; */
 
-  background-color: blue;
-`;
-const BodyContentBoxRightImg = styled.div`
-  width: 40%;
-  /* height: 350px; */
+  overflow: hidden;
 
-  background-color: blue;
-`;
-
-const BodyContents = styled.img`
-  margin: 4%;
-  width: 25%;
-  background-color: blue;
+  /* background-color: blue; */
 `;

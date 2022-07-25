@@ -12,7 +12,7 @@ const Main = () => {
   const [foodData, setFoodData] = useRecoilState(foodDataState);
   const [modalOpen, setModalOpen] = useState(false);
   const [eachFood, setEachFood] = useState({
-    id: "",
+    id: 0,
   });
 
   useEffect(() => {
@@ -39,7 +39,6 @@ const Main = () => {
 
   return (
     <>
-      {/* {modalOpen && <Modal setOpenModal={setModalOpen} />} */}
       <BodyTopWrapper>
         <BodyTopText>STORE</BodyTopText>
         <BodyTopUnderLineBox>
