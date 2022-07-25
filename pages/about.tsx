@@ -6,24 +6,10 @@ import styled from "styled-components";
 import Carousel from "../components/Carousel";
 
 const About = () => {
-  const [foodData, setFoodData] = useState([]);
-
-  useEffect(() => {
-    const getData = async () => {
-      const res = await API.get("stores");
-      setFoodData(res.data);
-    };
-    getData();
-  }, []);
-
-  useEffect(() => {
-    console.log("foodData", foodData);
-  }, []);
-
   return (
     <>
       <BodyTopWrapper>
-        <BodyTopText>About</BodyTopText>
+        <BodyTopText>ABOUT</BodyTopText>
         <BodyTopUnderLineBox>
           <BodyTopUnderLine></BodyTopUnderLine>
           <BodyTopUnderLine2></BodyTopUnderLine2>
@@ -42,16 +28,13 @@ const About = () => {
               FOOD STORE
             </BodyContentBoxLeftMainCopy>
             <BodyContentBoxLeftSubCopy>
-              여러분이 생각하는 세상 모든 종류의 <br /> 음식이 모여있습니다.
+              여러분이 상상하는 세상 모든 종류의 <br /> 음식들이 모여있습니다.
               <br />
               Enjoy Your Meal !
             </BodyContentBoxLeftSubCopy>
           </BodyContentBoxLeftCopyBox>
         </BodyContentBoxLeft>
         <BodyContentBoxRight>
-          {/* {foodData.map((item, index) => (
-            <img src={item.image} alt="img" key="slides" />
-          ))} */}
           <Carousel />
         </BodyContentBoxRight>
       </BodyContentWrapper>
@@ -67,9 +50,14 @@ const BodyTopWrapper = styled.section`
 `;
 
 const BodyTopText = styled.div`
-  font-size: 3rem;
+  font-size: 2rem;
   margin-left: 2%;
+  color: #353131;
   /* background-color: red; */
+  @media (max-width: 1150px) {
+    margin-top: 4rem;
+    font-size: 1.5rem;
+  }
 `;
 
 const BodyTopUnderLineBox = styled.div`
@@ -101,16 +89,32 @@ const BodyContentWrapper = styled.section`
   /* background-color: yellow; */
   display: flex;
   justify-content: center;
-  margin-top: 4%;
+  margin-top: 1rem;
   /* flex-direction: row; */
   /* justify-content: space-around; */
+  @media (max-width: 1150px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const BodyContentBoxLeft = styled.div`
   width: 35rem;
   /* height: 350px; */
   /* background-color: pink; */
-  margin-bottom: 130px;
+  margin-bottom: 95px;
+  @media (max-width: 1150px) {
+    width: 90vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: -4px;
+    margin-right: 1rem;
+  }
 `;
 
 const BodyContentBoxLeftImg = styled.div`
@@ -128,26 +132,26 @@ const BodyContentBoxLeftCopyBox = styled.div`
 const BodyContentBoxLeftMainCopy = styled.div`
   font-size: 3.3rem;
   font-weight: bold;
+  color: #353131;
+  @media (max-width: 1150px) {
+    font-size: 2rem;
+  }
   /* background-color: white; */
 `;
 const BodyContentBoxLeftSubCopy = styled.div`
   margin-top: 1rem;
   font-size: 1.3rem;
   font-weight: bold;
+  color: #353131;
+  @media (max-width: 1150px) {
+    font-size: 1rem;
+  }
   /* background-color: red; */
 `;
 
 const BodyContentBoxRight = styled.div`
   width: 30rem;
-  /* height: 350px; */
-  /* background-color: pink; */
-  margin-bottom: 130px;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-  /* height: 350px; */
-
+  margin-bottom: 1rem;
+  margin-top: 1rem;
   overflow: hidden;
-
-  /* background-color: blue; */
 `;

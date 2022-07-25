@@ -6,6 +6,8 @@ import styled from "styled-components";
 
 const Carousel = () => {
   const [foodData, setFoodData] = useState([]);
+  const [count, setCount] = useState(0);
+  const elementLength = foodData.length;
 
   useEffect(() => {
     const getData = async () => {
@@ -15,17 +17,7 @@ const Carousel = () => {
     getData();
   }, []);
 
-  useEffect(() => {
-    console.log("foodData", foodData);
-    console.log("foodDatalength", foodData.length);
-  }, [foodData]);
-
-  //   const slideRef = useRef();
-
-  const elementHeight = 120;
-  const elementLength = foodData.length;
-  const [count, setCount] = useState(0);
-
+  // 캐러셀 반복
   useEffect(() => {
     const timer = setInterval(() => {
       setCount((prev) => (prev === elementLength - 1 ? 0 : prev + 1));
@@ -34,7 +26,10 @@ const Carousel = () => {
     return () => {
       clearInterval(timer);
     };
-  }, []);
+  }, [count]);
+
+  console.log("elementLength", elementLength);
+  console.log("foodData.length", foodData.length);
 
   return (
     <>
@@ -45,10 +40,10 @@ const Carousel = () => {
               src={item.image}
               alt="img"
               key={item.id}
-              count={count}
               onClick={() => {
                 item.url ? window.open(item.url) : null;
               }}
+              count={count}
             />
           ))}
         </SwiperInner>
@@ -70,15 +65,13 @@ const SwiperInner = styled.div`
   display: flex;
 `;
 
-const SwiperItem = styled.img`
+const SwiperItem = styled.img<{ count: number }>`
   margin-right: 20rem;
-  width: 100%;
+  /* width: 100%; */
   border-radius: 0.5rem;
   cursor: pointer;
 
-  transition: ${(props: any) =>
-    props.count === 0 ? "" : "transform 1s ease-in-out"};
-  /* props.count === props.key ? " 0.5s" : "0s"}; */
+  transition: ${(props) => (props.count === 0 ? "" : "transform 0s")};
   transform: ${(props: any) => "translateX(-" + props.count * 40 + "rem)"};
 
   &:hover {

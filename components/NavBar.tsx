@@ -30,9 +30,6 @@ const NavBar = () => {
 
 export default NavBar;
 
-{
-  /* <Image src={Logo} width={100} height={100} alt="Logo" /> */
-}
 const Nav = styled.section`
   top: 0;
   left: 0;
@@ -42,7 +39,7 @@ const Nav = styled.section`
   background-color: white;
   width: 100vw;
   height: 130px;
-  z-index: 9999;
+  z-index: 100000;
 `;
 
 const NavRightBox = styled.div`
@@ -62,33 +59,44 @@ const NavRightTextStore = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-right: 10%;
-  margin-top: 3rem;
+  margin-top: 2rem;
   font-size: 2rem;
-  /* font-weight: bold; */
+  font-weight: bold;
+  color: #353131;
   cursor: pointer;
   &:hover {
-    color: black;
     opacity: 0.6;
   }
-  /* background-color: yellow; */
+  @media (max-width: 1150px) {
+    margin-top: 3rem;
+    font-size: 1.5rem;
+  }
 `;
 const NavRightTextAbout = styled.div`
   display: flex;
   justify-content: flex-end;
-  /* margin-right: 2%; */
-  margin-top: 3rem;
+  margin-right: 2%;
+  margin-top: 2rem;
   font-size: 2rem;
-  /* font-weight: bold; */
+  font-weight: bold;
+  color: #353131;
   cursor: pointer;
   &:hover {
-    color: black;
     opacity: 0.6;
   }
-  /* background-color: yellow; */
+  @media (max-width: 1150px) {
+    margin-top: 3rem;
+    font-size: 1.5rem;
+  }
 `;
 
 const NavRightLogoBox = styled.div`
   width: 7rem;
   height: 7rem;
   margin-top: 0.5rem;
+  @media (max-width: 1150px) {
+    margin-top: 3rem;
+    width: 5rem;
+    height: 5rem;
+  }
 `;

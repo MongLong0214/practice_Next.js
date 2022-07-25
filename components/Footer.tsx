@@ -12,8 +12,8 @@ const Footer = () => {
       </FooterBox>
       <FooterText>
         {" "}
-        &copy;{new Date().getFullYear()} SeoulMate | All rights reserved | Terms
-        Of Service | Privacy
+        &copy;{new Date().getFullYear()} AwesomeFoodStore | All rights reserved
+        | Terms Of Service | Privacy
       </FooterText>
     </FootContainer>
   );
@@ -43,12 +43,21 @@ const FooterBox = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
+  @media (max-width: 1150px) {
+    margin-top: 0.2rem;
+  }
 `;
 const FooterText = styled.div`
-  margin-bottom: 1rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
   color: #353131;
   font-size: 1.1rem;
   text-align: center;
   font-weight: bold;
+  margin-bottom: 1%;
+  /* background-color: red; */
+  @media (max-width: 1150px) {
+    font-size: 0.5rem;
+
+    margin-top: 0.3rem;
+  }
 `;

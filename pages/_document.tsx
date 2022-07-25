@@ -37,25 +37,15 @@ class MyDocument extends Document {
     return (
       <Html lang="ko">
         <Head>
+          <meta name="Awesome Food Store"></meta>
+          <meta content="Awesome Food Store"></meta>
           <meta charSet="utf-8" />
-          <link rel="shortcut icon" href="" type="image/svg" />
-          <meta property="og:title" content="why" />
-          <meta property="og:image" content="" />
-          <meta property="og:description" content="" />
-          <meta property="og:url" content="//" />
-          <meta name="description" content="" />
-          <meta name="keywords" content="" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap"
-            rel="preload"
-            as="style"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap"
+            href="https://font.elice.io/EliceDigitalBaeum.css"
             rel="stylesheet"
-          />
+          ></link>
         </Head>
+
         <body>
           <Main />
           <NextScript />
