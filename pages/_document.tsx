@@ -40,6 +40,7 @@ class MyDocument extends Document {
           <meta name="Awesome Food Store"></meta>
           <meta content="Awesome Food Store"></meta>
           <meta charSet="utf-8" />
+
           <link
             href="https://font.elice.io/EliceDigitalBaeum.css"
             rel="stylesheet"

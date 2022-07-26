@@ -28,10 +28,8 @@ const FootContainer = styled.div`
   align-items: center;
   flex-direction: column;
   background-color: white;
-
   /* background-color: green; */
 `;
-
 const FooterLine = styled.div`
   width: 98%;
   height: 0.3rem;
@@ -57,7 +55,6 @@ const FooterText = styled.div`
   /* background-color: red; */
   @media (max-width: 1150px) {
     font-size: 0.5rem;
-
     margin-top: 0.3rem;
   }
 `;

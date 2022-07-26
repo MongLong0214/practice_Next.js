@@ -48,7 +48,6 @@ const BodyTopWrapper = styled.section`
   /* background-color: blue; */
   margin-top: 130px;
 `;
-
 const BodyTopText = styled.div`
   font-size: 2rem;
   margin-left: 2%;
@@ -57,78 +56,63 @@ const BodyTopText = styled.div`
   @media (max-width: 1150px) {
     margin-top: 4rem;
     font-size: 1.5rem;
+    margin-left: 1rem;
   }
 `;
-
 const BodyTopUnderLineBox = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-around;
   /* background-color: black; */
 `;
-
 const BodyTopUnderLine = styled.div`
   width: 47%;
   height: 0.3rem;
-  /* margin-left: 0.5rem; */
-
   background: #9c27b0;
   border-radius: 2rem;
 `;
 const BodyTopUnderLine2 = styled.div`
   width: 47%;
   height: 0.3rem;
-  /* margin-right: 0.5rem; */
-
   background: #9c27b0;
   border-radius: 2rem;
 `;
-
 const BodyContentWrapper = styled.section`
-  /* width: 100%; */
   /* background-color: yellow; */
   display: flex;
   justify-content: center;
   margin-top: 1rem;
-  /* flex-direction: row; */
-  /* justify-content: space-around; */
+
   @media (max-width: 1150px) {
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 `;
-
 const BodyContentBoxLeft = styled.div`
   width: 35rem;
-  /* height: 350px; */
   /* background-color: pink; */
   margin-bottom: 95px;
   @media (max-width: 1150px) {
     width: 90vw;
-
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
     margin-bottom: -4px;
-    margin-right: 1rem;
+    margin-right: 2rem;
   }
 `;
-
 const BodyContentBoxLeftImg = styled.div`
-  /* margin: 4%; */
   margin-top: 5%;
   margin-left: 1.4rem;
   /* background-color: yellow; */
 `;
-
 const BodyContentBoxLeftCopyBox = styled.div`
   /* background-color: pink; */
   margin-left: 1.4rem;
 `;
-
 const BodyContentBoxLeftMainCopy = styled.div`
   font-size: 3.3rem;
   font-weight: bold;
@@ -148,10 +132,13 @@ const BodyContentBoxLeftSubCopy = styled.div`
   }
   /* background-color: red; */
 `;
-
 const BodyContentBoxRight = styled.div`
   width: 30rem;
   margin-bottom: 1rem;
   margin-top: 1rem;
   overflow: hidden;
+  @media (max-width: 1150px) {
+    width: 25rem;
+    margin-right: 5rem;
+  }
 `;

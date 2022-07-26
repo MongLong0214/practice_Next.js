@@ -41,7 +41,6 @@ const Nav = styled.section`
   height: 130px;
   z-index: 100000;
 `;
-
 const NavRightBox = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -49,7 +48,6 @@ const NavRightBox = styled.div`
   font-size: 1.5rem;
   /* background-color: yellow; */
 `;
-
 const NavRightTextBox = styled.ul`
   display: flex;
   justify-content: flex-end;
@@ -89,13 +87,13 @@ const NavRightTextAbout = styled.div`
     font-size: 1.5rem;
   }
 `;
-
 const NavRightLogoBox = styled.div`
   width: 7rem;
   height: 7rem;
   margin-top: 0.5rem;
   @media (max-width: 1150px) {
     margin-top: 3rem;
+    margin-right: 1rem;
     width: 5rem;
     height: 5rem;
   }

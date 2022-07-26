@@ -37,8 +37,6 @@ const Main = () => {
     getData();
   }, [setFoodData]);
 
-  console.log("FoodData", foodData);
-
   const handlerModal = (e) => {
     // 스크롤 맨 위로 이동
     window.scrollTo({ top: 0 });
@@ -47,8 +45,6 @@ const Main = () => {
     setEachFood({
       id: e.target.id - 1,
     });
-
-    console.log("e", e.target.id);
   };
 
   return (
@@ -96,19 +92,6 @@ const Main = () => {
                     </Grid>
                   ))}
                 </Grid>
-                {/* <Grid container spacing={4}>
-                  {foodData.map((item, index) => (
-                    <Grid item xs={12} md={6} lg={3} key={index}>
-                      <BodyContents
-                        key={item.name}
-                        src={item.thumb}
-                        alt={item.name}
-                        id={item.id}
-                        onClick={handlerModal}
-                      />
-                    </Grid>
-                  ))}
-                </Grid> */}
               </Container>
             </BodyContentBox>
             {modalOpen && (
@@ -135,6 +118,7 @@ const BodyTopText = styled.div`
   @media (max-width: 1150px) {
     margin-top: 4rem;
     font-size: 1.5rem;
+    margin-left: 1rem;
   }
   /* background-color: red; */
 `;
@@ -145,31 +129,23 @@ const BodyTopUnderLineBox = styled.div`
   justify-content: space-around;
   /* background-color: black; */
 `;
-
 const BodyTopUnderLine = styled.div`
   width: 47%;
   height: 0.3rem;
-  /* margin-left: 0.5rem; */
-
   background: #9c27b0;
   border-radius: 2rem;
 `;
 const BodyTopUnderLine2 = styled.div`
   width: 47%;
   height: 0.3rem;
-  /* margin-right: 0.5rem; */
-
   background: #9c27b0;
   border-radius: 2rem;
 `;
 const BodyContentText = styled.div`
-  /* width: 100%; */
   font-size: 3rem;
   font-weight: bold;
   color: #353131;
   margin-top: 2%;
-
-  /* margin-left: 26vw; */
   display: flex;
   justify-content: center;
   /* background-color: gray; */
@@ -178,31 +154,26 @@ const BodyContentText = styled.div`
     font-size: 2rem;
   }
 `;
-
 const BodyContentWrapper = styled.section`
   /* background-color: yellow; */
   display: flex;
   justify-content: center;
 `;
-
 const BodyContentBox = styled.div`
   width: 50%;
   /* background-color: red; */
 `;
-
 const BodyContents = styled.img`
   border-radius: 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
-
   cursor: pointer;
   &:hover {
     opacity: 0.8;
   }
   @media (max-width: 1150px) {
     width: 100;
-    /* height: 100%; */
   }
   /* background-color: blue; */
 `;

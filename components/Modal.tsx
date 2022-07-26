@@ -7,7 +7,7 @@ import styled, { keyframes } from "styled-components";
 import clear from "../public/clear.png";
 const Modal = ({ setOpenModal, id }: any) => {
   const FoodData = useRecoilValue(foodDataState);
-  // 모달 팝업 시 스크롤 이동 방지
+  // 모달 팝업 시 스크롤 맨 위로 올리고 스크롤 이동 방지
   useEffect(() => {
     document.body.style.cssText = `
           position: fixed; 
@@ -21,11 +21,11 @@ const Modal = ({ setOpenModal, id }: any) => {
     };
   }, []);
 
-  useEffect(() => {
-    console.log("FoodData", FoodData);
-    console.log("FoodData", FoodData[0].image);
-    console.log("FoodData.desc", FoodData[2].description);
-  });
+  // description에서 lastOrder만 골라내기
+  const lastOrderIdx: Number = FoodData[id].description.indexOf("LAST");
+  const lastOrder: number | string =
+    FoodData[id].description.substr(lastOrderIdx);
+  const realDes: string = FoodData[id].description.replace(lastOrder, "");
 
   return (
     <ModalBackground>
@@ -54,7 +54,8 @@ const Modal = ({ setOpenModal, id }: any) => {
               <ModalContainerRightName>
                 {FoodData[id].name}
               </ModalContainerRightName>
-              <ModalContainerDes>{FoodData[id].description}</ModalContainerDes>
+              <ModalContainerDes>{realDes}</ModalContainerDes>
+              <ModalContainerLastOrder>{lastOrder}</ModalContainerLastOrder>
               <ModalContainerUrl
                 onClick={() => {
                   window.open(FoodData[id]?.url);
@@ -76,7 +77,6 @@ const ModalBackground = styled.div`
   width: 100vw;
   height: 100vh;
   position: fixed;
-  /* padding: 2rem; */
   top: 0;
   left: 0;
   z-index: 100000;
@@ -98,9 +98,6 @@ export const fadeInAnimation = keyframes`
 const ModalContainer = styled.div`
   width: 80%;
   height: 75vh;
-  /* max-height: 80%; */
-  /* margin-top: 22%; */
-  /* margin-bottom: 5%; */
   border-radius: 12px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -108,16 +105,11 @@ const ModalContainer = styled.div`
   animation: ${fadeInAnimation} 0.2s ease-in-out;
   display: flex;
   flex-direction: column;
-
   @media (max-width: 1150px) {
     width: 100%;
     min-height: -webkit-fill-available;
-    /* height: 80vh; */
-
-    /* margin-bottom: 18vh; */
   }
 `;
-
 const ModalCloseBtn = styled.div`
   width: 100%;
   height: 30px;
@@ -128,7 +120,6 @@ const ModalCloseBtn = styled.div`
   cursor: pointer;
   z-index: 1000;
 `;
-
 const ModalContent = styled.div`
   width: 100%;
   height: 100%;
@@ -138,23 +129,18 @@ const ModalContent = styled.div`
     justify-content: center;
     align-items: center;
   }
-
   /* background-color: red; */
 `;
 const ModalContainerLeft = styled.div`
-  /* margin-top: 2rem; */
   width: 50%;
   height: inherit;
   display: flex;
   justify-content: center;
   align-items: center;
   @media (max-width: 1150px) {
-    margin-top: -10rem;
-    /* margin-left: 5%; */
+    margin-top: -7rem;
     width: 90vw;
   }
-  /* border-right: 1px solid gray; */
-
   /* background-color: gray; */
 `;
 
@@ -174,13 +160,11 @@ const ModalContainerLeftImg = styled.img<{ url: any }>`
   }
 `;
 const ModalContainerRight = styled.div`
-  /* margin-top: 2rem; */
   width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   /* background-color: yellow; */
 `;
 const ModalContainerRightBox = styled.div`
@@ -192,36 +176,53 @@ const ModalContainerRightBox = styled.div`
   border-radius: 1rem;
   margin-right: 10%;
   @media (max-width: 1150px) {
-    /* margin-top: -15rem; */
     margin-left: 8%;
     margin-bottom: 5rem;
     width: 20rem;
   }
 `;
-
 const ModalContainerRightName = styled.div`
   font-size: 2rem;
   font-weight: bold;
+  color: #353131;
   @media (max-width: 1150px) {
     font-size: 1.3rem;
+    margin-top: -1rem;
   }
-
   /* background-color: blue; */
 `;
 const ModalContainerDes = styled.div`
   margin-top: 2rem;
   font-size: 1rem;
+  color: #353131;
   @media (max-width: 1150px) {
     font-size: 0.7rem;
+    margin-top: 1rem;
+  }
+  /* background-color: gray; */
+`;
+
+const ModalContainerLastOrder = styled.div`
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #353131;
+  @media (max-width: 1150px) {
+    font-size: 0.5rem;
+    margin-top: 1rem;
   }
   /* background-color: gray; */
 `;
 const ModalContainerUrl = styled.div`
-  margin-top: 2rem;
+  margin-top: 1rem;
   cursor: pointer;
+  font-weight: bold;
+  color: #353131;
   &:hover {
     opacity: 0.5;
   }
-
+  @media (max-width: 1150px) {
+    font-size: 0.7rem;
+  }
   /* background-color: red; */
 `;

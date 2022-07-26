@@ -28,9 +28,6 @@ const Carousel = () => {
     };
   }, [count]);
 
-  console.log("elementLength", elementLength);
-  console.log("foodData.length", foodData.length);
-
   return (
     <>
       <SwiperContainer>
@@ -56,24 +53,18 @@ export default Carousel;
 
 const SwiperContainer = styled.div`
   width: 300vw;
-
-  /* background-color: blue; */
 `;
 const SwiperInner = styled.div`
   margin: 5rem;
   width: 20%;
   display: flex;
 `;
-
 const SwiperItem = styled.img<{ count: number }>`
   margin-right: 20rem;
-  /* width: 100%; */
   border-radius: 0.5rem;
   cursor: pointer;
-
   transition: ${(props) => (props.count === 0 ? "" : "transform 0s")};
   transform: ${(props: any) => "translateX(-" + props.count * 40 + "rem)"};
-
   &:hover {
     opacity: 0.8;
   }
