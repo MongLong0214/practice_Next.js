@@ -34,6 +34,7 @@ const Carousel = () => {
         <SwiperInner>
           {foodData?.map((item, index) => (
             <SwiperItem
+              url={item.url}
               src={item.image}
               alt="img"
               key={item.id}
@@ -59,13 +60,14 @@ const SwiperInner = styled.div`
   width: 20%;
   display: flex;
 `;
-const SwiperItem = styled.img<{ count: number }>`
+const SwiperItem = styled.img<{ count: number; url: string }>`
   margin-right: 20rem;
   border-radius: 0.5rem;
-  cursor: pointer;
+  cursor: ${(props) => (props.url ? "pointer" : "")};
   transition: ${(props) => (props.count === 0 ? "" : "transform 0s")};
   transform: ${(props: any) => "translateX(-" + props.count * 40 + "rem)"};
+  // URL이 있는 사진만 hover 효과 적용
   &:hover {
-    opacity: 0.8;
+    ${(props) => (props.url ? "opacity: 0.8" : "")}
   }
 `;

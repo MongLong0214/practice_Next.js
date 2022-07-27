@@ -42,7 +42,7 @@ class MyDocument extends Document {
           <meta charSet="utf-8" />
 
           <link
-            href="https://font.elice.io/EliceDigitalBaeum.css"
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
             rel="stylesheet"
           ></link>
         </Head>

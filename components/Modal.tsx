@@ -144,11 +144,11 @@ const ModalContainerLeft = styled.div`
   /* background-color: gray; */
 `;
 
-const ModalContainerLeftImg = styled.img<{ url: any }>`
+const ModalContainerLeftImg = styled.img<{ url: string }>`
   border-radius: 1rem;
   width: 20rem;
   height: 20rem;
-  // URL이 있는 사진만 효과 적용
+  // URL이 있는 사진만 hover 효과 적용
   cursor: ${(props) => (props.url ? "pointer" : "")};
   &:hover {
     ${(props) => (props.url ? "opacity: 0.8" : "")}

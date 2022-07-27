@@ -67,7 +67,8 @@ const NavRightTextStore = styled.div`
   }
   @media (max-width: 1150px) {
     margin-top: 3rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    margin-right: 0.7rem;
   }
 `;
 const NavRightTextAbout = styled.div`
@@ -84,7 +85,8 @@ const NavRightTextAbout = styled.div`
   }
   @media (max-width: 1150px) {
     margin-top: 3rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    margin-right: 0.2rem;
   }
 `;
 const NavRightLogoBox = styled.div`

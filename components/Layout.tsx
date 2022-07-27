@@ -6,9 +6,9 @@ import Head from "next/head";
 const Layout = ({ children }: React.PropsWithChildren) => {
   return (
     <>
-      <Head>
+      {/* <Head>
         <title>Awesome FoodStore</title>
-      </Head>
+      </Head> */}
       <NavBar />
       <div>{children}</div>
       <Footer />

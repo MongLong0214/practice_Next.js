@@ -9,6 +9,10 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <RecoilRoot>
         <Layout>
+          <Head>
+            <title>Awesome FoodStore</title>
+            <link rel="shortcut icon" href="favicon/favicon.ico" />
+          </Head>
           <Component {...pageProps} />
         </Layout>
       </RecoilRoot>
