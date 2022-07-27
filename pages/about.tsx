@@ -81,7 +81,7 @@ const BodyContentWrapper = styled.section`
   /* background-color: yellow; */
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 2.5rem;
 
   @media (max-width: 1150px) {
     flex-direction: column;

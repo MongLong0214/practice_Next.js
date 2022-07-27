@@ -12,8 +12,7 @@ const Footer = () => {
       </FooterBox>
       <FooterText>
         {" "}
-        &copy;{new Date().getFullYear()} AwesomeFoodStore | All rights reserved
-        | Terms Of Service | Privacy
+        &copy;{new Date().getFullYear()} AwesomeFoodStore | 조원일
       </FooterText>
     </FootContainer>
   );
@@ -46,7 +45,7 @@ const FooterBox = styled.div`
   }
 `;
 const FooterText = styled.div`
-  margin-top: 2rem;
+  margin-top: 1rem;
   color: #353131;
   font-size: 1.1rem;
   text-align: center;
