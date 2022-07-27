@@ -8,7 +8,7 @@ const Footer = () => {
     <FootContainer>
       <FooterLine />
       <FooterBox>
-        <Image src={Logo} width={110} height={110} alt="Logo" />
+        <Image src={Logo} width={100} height={100} alt="Logo" />
       </FooterBox>
       <FooterText>
         {" "}
